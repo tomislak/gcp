@@ -1,5 +1,3 @@
-# https://medium.com/google-cloud/gcp-how-to-deploy-cloud-nat-with-terraform-44745a4daaa8
-
 terraform {
   required_providers {
     google = {
@@ -116,7 +114,7 @@ resource "google_compute_instance" "bastion-instance" {
     subnetwork = google_compute_subnetwork.devnetsubbas.name
     access_config {}
   }
-  metadata_startup_script = file("~/Projekti/Terraform/vmBastionInternal/bastionKey.sh")
+  metadata_startup_script = file("/path/to/file/bastionKey.sh")
 }
 
 # Create a VM in a nat subnet
