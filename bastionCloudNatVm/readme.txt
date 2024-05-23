@@ -40,8 +40,13 @@ Resources whitch will be created:
   - one instance in bastion subnet
   - one instance in nat subnet
 
-bastionKey.sh should look like:
-$ cat ../../../vmBastionInternal/bastionKey.sh
+
+
+Youh should have files like:
+$ ls
+main.tf  readme.txt  variables.tf  bastionKey.sh
+
+$ cat bastionKey.sh
 #!/bin/bash
 cat >/tmp/privateKey <<EOF
 -----BEGIN OPENSSH PRIVATE KEY-----
@@ -56,6 +61,16 @@ $ terraform init
 $ terraform validate
 $ terraform fmt
 $ terraform apply
+
+Example ip addresses ( visible from gui ):
+  bastion_external_ip_address: 34.116.34.116
+  bastion_internal_ip_address: 10.0.2.2
+  nat_internal_ip_address: 10.0.1.2
+
+To connect to environment:
+$ ssh 34.116.34.116
+username@bastion-vm:~$ ssh -i /tmp/privateKey 10.0.1.2
+username@nat-vm:~$
 
 Run to destroy environment:
 $ terraform destroy
