@@ -1,20 +1,3 @@
-Put variables in variables.tf, like:
-
-variable "project" {
-  type    = string
-  default = "gcp_project_name"
-}
-
-variable "region" {
-  type    = string
-  default = "gcp_region"
-}
-
-variable "zone" {
-  type    = string
-  default = "gcp_zone"
-}
-
 This terraform project will setup small gcp environment with two instances.
 
 Prerequisit is metadata with public key.
@@ -55,6 +38,22 @@ b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
 N9+e1VeroVyIkAAAAVZXRva3JhbEB1YnVudHUyMjA0Z3VpAQIDBAUG
 -----END OPENSSH PRIVATE KEY-----
 EOF
+
+$ cat variables.tf
+variable "project" {
+  type    = string
+  default = "gcp_project_name"
+}
+
+variable "region" {
+  type    = string
+  default = "gcp_region"
+}
+
+variable "zone" {
+  type    = string
+  default = "gcp_zone"
+}
 
 Run to create environment:
 $ terraform init
